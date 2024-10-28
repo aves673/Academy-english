@@ -1,87 +1,160 @@
-/* Estilos gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: darkseagreen;
-    color: black;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+background-color: #f4f4f4;
 }
 
-.center-text {
-    text-align: center;
-}
-
-/* Estilos para o header */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
+    background-color: #35424a;
+    color: #ffffff;
     text-align: center;
 }
-
-header h1 {
-    margin: 0;
-}
-
-/* Estilos para a navegação */
 nav ul {
+    display: flex;
+    justify-content: center;
     list-style-type: none;
-    padding: 0;
-    text-align: center;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    margin: 0 15px;
 }
 
-/* Estilos para o conteúdo principal */
-main {
-    padding: 20px;
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
-section {
-    margin-bottom: 20px;
+nav a:hover,
+.sidebar a:hover  {
+    color: #f39c12; /* Cor de destaque ao passaro mouse */
+    text-shadow: 0 0 5px rgba(243, 156, 18, 0.6); /* Sombreamento ao passar o mouse */
 }
 
-h2 {
-    color: #333;
-    margin-bottom: 10px;
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
-ul {
+.sidebar {
+    background-color: #2c3e50;
+    width: 250px;
+    padding: 15px;
+    transition: width 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar:hover {
+    width: 280px; /* Expande a sidebar ao passar o mouse */
+}
+.sidebar ul {
     list-style-type: none;
-    padding-left: 0;
 }
 
-/* Estilos para tabelas */
-table {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 750px;
-    border-collapse: collapse;
-    text-align: center;
+.sidebar ul li {
+    margin: 15px 0;
+}
+.sidebar a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
-table th, table td {
-    padding: 10px;
-    border: 1px solid #333;
+.sidebar a:hover {
+    text-align: underline;
+    color: #f39c12;
 }
 
-/* Estilos para imagens */
-img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
-/* Estilos para o footer */
+.content section {
+
+    margin-bottom: 30px;
+
+}
+
 footer {
-    background-color: darkgrey;
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
+    padding: 15px;
+    background-color: #35424a;
+    color: #ffffff;
+    position: relative;
     bottom: 0;
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+nav a:focus,
+.sidebar a:focus {
+    outline: 2px solid #f39c12; /* Contorno visível ao focar no link */
+}
+
+/* Estilização do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 15px;
+    font-weight: bold; /* Negrito para labels */
+}
+
+form input, form textarea {
+    padding: 12px; /* Aumentando o espaçamento interno */
+    margin-top: 5px;
+    border: 1px solid #ccc; /* Borda leve */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: border 0.3s; /* Efeito de transição */
+}
+
+form input:focus, form textarea:focus {
+    border-color: #007BFF; /* Mudança de cor ao focar */
+    outline: none; /* Remover contorno padrão */
+}
+
+form button {
+    margin-top: 15px;
+    padding: 12px;
+    background: #007BFF; /* Cor consistente */
+    color: #fff;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer;
+    transition: background 0.3s; /* Efeito de transição */
+}
+
+form button:hover {
+    background: #0056b3; /* Cor mais escura ao passar o mouse */
 }
