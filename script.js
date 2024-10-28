@@ -1,73 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('interactive-form');
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const ageInput = document.getElementById('age');
-    const feedbackInput = document.getElementById('feedback');
-    const confirmationMessage = document.getElementById('confirmation-message');
-
-    const nameError = document.getElementById('name-error');
-    const emailError = document.getElementById('email-error');
-    const ageError = document.getElementById('age-error');
-    const feedbackError = document.getElementById('feedback-error');
+    const form = document.getElementById('FormularioForm');
 
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // Impede o envio padrão do formulário
 
-        let valid = true;
+        // Validação dos campos
+        const nome = form.nome.value.trim();
+        const email = form.email.value.trim();
+        const endereco = form.endereco.value.trim(); // Corrigido: "endereço" para "endereco"
+        const mensagem = form.mensagem.value.trim();
+        const telefone = form.telefone.value.trim();
 
-        // Validação do campo nome
-        if (nameInput.value.trim() === '') {
-            nameError.textContent = 'Name is required.';
-            valid = false;
-        } else {
-            nameError.textContent = '';
+        // Validação básica
+        if (!nome || !email || !mensagem) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return;
         }
 
-        // Validação do campo e-mail
-        if (emailInput.value.trim() === '') {
-            emailError.textContent = 'Email is required.';
-            valid = false;
-        } else if (!validateEmail(emailInput.value)) {
-            emailError.textContent = 'Invalid email format.';
-            valid = false;
-        } else {
-            emailError.textContent = '';
+        // Validação do formato do email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Por favor, insira um email válido.');
+            return;
         }
 
-        // Validação do campo idade
-        if (ageInput.value.trim() === '') {
-            ageError.textContent = 'Age is required.';
-            valid = false;
-        } else if (isNaN(ageInput.value) || ageInput.value <= 0) {
-            ageError.textContent = 'Please enter a valid age.';
-            valid = false;
-        } else {
-            ageError.textContent = '';
-        }
+        // Simulação de envio (substituir por uma chamada real à API, se necessário)
 
-        // Validação do campo feedback
-        if (feedbackInput.value.trim() === '') {
-            feedbackError.textContent = 'Feedback is required.';
-            valid = false;
-        } else {
-            feedbackError.textContent = '';
-        }
-
-        // Se todos os campos são válidos, exibir a mensagem de confirmação
-        if (valid) {
-            confirmationMessage.textContent = 'Thank you for your feedback!';
-            form.reset();
-        }
+        // Feedback ao usuário
+        alert(`Obrigado pelo seu contato, ${nome}! Sua mensagem foi enviada.`);
+        
+        // Resetando o formulário
+        form.reset();
     });
-
-    function validateEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email.toLowerCase());
-    }
 });
-
-
-
-
-
