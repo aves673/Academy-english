@@ -1,68 +1,160 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f0f0f0;
+background-color: #f4f4f4;
+}
+
+header {
+    background-color: #35424a;
+    color: #ffffff;
     text-align: center;
 }
-
-h1 {
-    color: #333;
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
 }
 
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left; /* Alterado para alinhar o texto à esquerda dentro do formulário */
+nav ul li {
+    margin: 0 15px;
 }
 
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="number"],
-textarea {
-    width: calc(100% - 16px); /* Ajustado para lidar com o padding de 8px em ambos os lados */
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+nav a:hover,
+.sidebar a:hover  {
+    color: #f39c12; /* Cor de destaque ao passaro mouse */
+    text-shadow: 0 0 5px rgba(243, 156, 18, 0.6); /* Sombreamento ao passar o mouse */
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
 }
 
-button:hover {
-    background-color: #45a049;
+.sidebar {
+    background-color: #2c3e50;
+    width: 250px;
+    padding: 15px;
+    transition: width 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.error-message {
-    color: red;
-    font-size: 12px;
+.sidebar:hover {
+    width: 280px; /* Expande a sidebar ao passar o mouse */
+}
+.sidebar ul {
+    list-style-type: none;
 }
 
-.confirmation-message {
-    margin-top: 20px;
-    font-size: 18px;
-    color: green;
+.sidebar ul li {
+    margin: 15px 0;
+}
+.sidebar a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.sidebar a:hover {
+    text-align: underline;
+    color: #f39c12;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.content section {
+
+    margin-bottom: 30px;
+
+}
+
+footer {
     text-align: center;
+    padding: 15px;
+    background-color: #35424a;
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+nav a:focus,
+.sidebar a:focus {
+    outline: 2px solid #f39c12; /* Contorno visível ao focar no link */
+}
+
+/* Estilização do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    margin-top: 15px;
+    font-weight: bold; /* Negrito para labels */
+}
+
+form input, form textarea {
+    padding: 12px; /* Aumentando o espaçamento interno */
+    margin-top: 5px;
+    border: 1px solid #ccc; /* Borda leve */
+    border-radius: 5px; /* Bordas arredondadas */
+    transition: border 0.3s; /* Efeito de transição */
+}
+
+form input:focus, form textarea:focus {
+    border-color: #007BFF; /* Mudança de cor ao focar */
+    outline: none; /* Remover contorno padrão */
+}
+
+form button {
+    margin-top: 15px;
+    padding: 12px;
+    background: #007BFF; /* Cor consistente */
+    color: #fff;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer;
+    transition: background 0.3s; /* Efeito de transição */
+}
+
+form button:hover {
+    background: #0056b3; /* Cor mais escura ao passar o mouse */
 }
